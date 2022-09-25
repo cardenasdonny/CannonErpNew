@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Common.Mapping\Common.Mapping.csproj" />
+    <ProjectReference Include="..\..\..\Common\Common.Paging\Common.Paging.csproj" />
+    <ProjectReference Include="..\Cliente.Contracts\Cliente.Contracts.csproj" />
+    <ProjectReference Include="..\Cliente.Entities\Cliente.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -25,8 +25,8 @@ namespace Inventario.Application.Queries
         }
 
         public async Task<ArticuloDto> GetByIdAsync(int id)
-        {
-            return (await _context.Articulos.SingleAsync(x => x.ArticuloId == id)).MapTo<ArticuloDto>();
+        {            
+            return (await _context.Articulos.Include(x => x.Stock).SingleAsync(x => x.ArticuloId == id)).MapTo<ArticuloDto>();
         }
 
         

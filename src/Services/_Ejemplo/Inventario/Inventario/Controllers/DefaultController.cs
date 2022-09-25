@@ -6,8 +6,8 @@ namespace Inventario.Controllers
     // En este controlador vamos a poder utilizar el health check
 
     [ApiController]    
-    [Route("api/[area]/[controller]")]
-    [Area(AreaConstants.AREA)]
+    [Route("v1/[area]/[controller]")]
+    [Area(InventarioConstants.AREA)]
     public class DefaultController : ControllerBase
     {  
 

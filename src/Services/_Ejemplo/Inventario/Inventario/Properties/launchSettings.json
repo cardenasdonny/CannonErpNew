@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:31273",
+      "applicationUrl": "http://localhost:60001",
       "sslPort": 0
     }
   },
@@ -12,9 +12,9 @@
     "Inventario": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "api/Ejemplo/Default",
-      "applicationUrl": "http://localhost:5140",
+      "launchBrowser": false,
+      //"launchUrl": "v1/EjemploInventario/Default",
+      "applicationUrl": "http://localhost:50001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

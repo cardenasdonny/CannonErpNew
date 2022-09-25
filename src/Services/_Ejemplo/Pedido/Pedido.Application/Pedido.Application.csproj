@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Common.Mapping\Common.Mapping.csproj" />
+    <ProjectReference Include="..\Pedido.Contracts\Pedido.Contracts.csproj" />
+    <ProjectReference Include="..\Pedido.Entities\Pedido.Entities.csproj" />
+    <ProjectReference Include="..\Pedido.Proxies\Pedido.Proxies.csproj" />
+  </ItemGroup>
+
+</Project>
