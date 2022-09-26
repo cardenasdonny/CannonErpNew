@@ -28,9 +28,10 @@ namespace Pedido.Application.Queries
             return collection.MapTo<DataCollection<PedidoDto>>();
         }
 
-        public async Task<PedidoDto> GetAsync(int id)
+        public async Task<PedidoDto> GetByAsync(int id)
         {
-            return (await _context.Pedidos.Include(x => x.Items).SingleAsync(x => x.PedidoId == id)).MapTo<PedidoDto>();
+            
+            return (await _context.Pedidos.Include(x => x.Items).FirstOrDefaultAsync(x => x.PedidoId == id)).MapTo<PedidoDto>();
         }
     }
 }

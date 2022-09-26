@@ -7,15 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="10.0.1" />
+    <Folder Include="Config\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Pedido.Contracts\Pedido.Contracts.csproj" />
-    <ProjectReference Include="..\Pedido.Shared\Pedido.Shared.csproj" />
+    <ProjectReference Include="..\ApiGateway.Models\ApiGateway.Models.csproj" />
+    <ProjectReference Include="..\ApiGateway.Shared\ApiGateway.Shared.csproj" />
   </ItemGroup>
 
 </Project>

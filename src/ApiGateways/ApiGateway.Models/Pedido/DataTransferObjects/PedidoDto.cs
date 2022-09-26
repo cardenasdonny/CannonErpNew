@@ -1,6 +1,7 @@
-﻿using static Pedido.Shared.Common.Enums;
+﻿using ApiGateway.Models.Cliente.DataTransferObjects;
+using static ApiGateway.Models.Pedido.Commons.Enums;
 
-namespace Pedido.Shared.DataTransferObjects
+namespace ApiGateway.Models.Pedido.DataTransferObjects
 {
     public class PedidoDto
     {
@@ -8,9 +9,13 @@ namespace Pedido.Shared.DataTransferObjects
         public string PedidoNumero { get; set; }
         public PedidoEstado PedidoEstado { get; set; }
         public MetodoPago MetodoPago { get; set; }
-        public int ClienteId { get; set; }       
+        public int ClienteId { get; set; }
         public IEnumerable<PedidoDetalleDto> Items { get; set; } = new List<PedidoDetalleDto>();
         public DateTime FechaCreacion { get; set; }
         public decimal Total { get; set; }
+
+        //Propiedades de navegación
+
+        public ClienteDto Cliente { get; set; }
     }
 }

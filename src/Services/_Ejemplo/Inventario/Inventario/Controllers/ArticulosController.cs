@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inventario.Controllers
 {
+    [ApiController]
     [Route("v1/[area]/[controller]")]
     [Area(InventarioConstants.AREA)]
-    [ApiController]    
     public class ArticulosController : ControllerBase
     {
         private readonly ILogger<ArticulosController> _logger;

@@ -4,47 +4,43 @@ using Cliente.Shared.Common;
 using Cliente.Shared.DataTransferObjects;
 using Common.Collection;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cliente.Controllers
-{
+{    
+    [ApiController]
     [Route("v1/[area]/[controller]")]
     [Area(ClienteConstants.AREA)]
-    [ApiController]
     public class ClientesController : ControllerBase
     {
-        private readonly IClienteQueryService _clientQuerService;
+        private readonly IClienteQueryService _clienteQueryService;
         private readonly ILogger<ClientesController> _logger;
         private readonly IMediator _mediator;
 
-        public ClientesController(
-            ILogger<ClientesController> logger,
-            IMediator mediator,
-            IClienteQueryService clientQuerService)
+        public ClientesController(ILogger<ClientesController> logger, IMediator mediator, IClienteQueryService clienteQueryService)
         {
             _logger = logger;
             _mediator = mediator;
-            _clientQuerService = clientQuerService;
+            _clienteQueryService = clienteQueryService;
         }
 
         [HttpGet]
         public async Task<DataCollection<ClienteDto>> GetAll(int page = 1, int take = 10, string ? ids = null)
         {
-            IEnumerable<int> clients = null;
+            IEnumerable<int> clientes = null;
 
             if (!string.IsNullOrEmpty(ids))
             {
-                clients = ids.Split(',').Select(x => Convert.ToInt32(x));
+                clientes = ids.Split(',').Select(x => Convert.ToInt32(x));
             }
 
-            return await _clientQuerService.GetAllAsync(page, take, clients);
+            return await _clienteQueryService.GetAllAsync(page, take, clientes);
         }
 
         [HttpGet("{id}")]
         public async Task<ClienteDto> GetById(int id)
         {
-            return await _clientQuerService.GetAsync(id);
+            return await _clienteQueryService.GetAsync(id);
         }
 
         [HttpPost]
@@ -53,5 +49,7 @@ namespace Cliente.Controllers
             await _mediator.Publish(notification);
             return Ok();
         }
+
+       
     }
 }

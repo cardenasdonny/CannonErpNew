@@ -1,4 +1,4 @@
-﻿namespace Cliente.Shared.DataTransferObjects
+﻿namespace ApiGateway.Models.Cliente.DataTransferObjects
 {
     public class ClienteDto
     {

@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Pedido.Proxies.Inventario.Commands;
 using System.Text;
@@ -14,13 +14,13 @@ namespace Pedido.Proxies.Inventario
     {
         private readonly ApiUrls _apiUrls;
         private readonly HttpClient _httpClient;
-        private readonly IConfiguration _configuration;
 
-        public InventarioProxy(HttpClient httpClient, IOptions<ApiUrls> apiUrls, IConfiguration configuration)
+        public InventarioProxy(HttpClient httpClient, IOptions<ApiUrls> apiUrls, IHttpContextAccessor httpContextAccessor)
         {
+            //httpClient.AddBearerToken(httpContextAccessor);
             _apiUrls = apiUrls.Value;
             _httpClient = httpClient;
-            _configuration = configuration;
+            
         }
 
         public HttpClient HttpClient { get; }
@@ -35,7 +35,7 @@ namespace Pedido.Proxies.Inventario
                 "application/json"
             );           
 
-            var request = await _httpClient.PutAsync(_apiUrls.InventarioUrl, content);
+            var request = await _httpClient.PutAsync(_apiUrls.InventarioUrl + "v1/EjemploInventario/Existencias", content);
             
             request.EnsureSuccessStatusCode();
         }

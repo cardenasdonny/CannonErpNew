@@ -8,10 +8,10 @@ using Pedido.Shared.Common;
 using Pedido.Shared.DataTransferObjects;
 
 namespace Pedido.Controllers
-{
+{    
+    [ApiController]
     [Route("v1/[area]/[controller]")]
     [Area(PedidoConstants.AREA)]
-    [ApiController]
     public class PedidosController : ControllerBase
     {
         private readonly ILogger<PedidosController> _logger;
@@ -32,9 +32,9 @@ namespace Pedido.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<PedidoDto> Get(int id)
+        public async Task<PedidoDto> GetById(int id)
         {
-            return await _pedidoQueryService.GetAsync(id);
+            return await _pedidoQueryService.GetByAsync(id);
         }
 
         [HttpPost]
