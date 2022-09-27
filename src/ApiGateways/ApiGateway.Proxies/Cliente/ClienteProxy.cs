@@ -1,4 +1,5 @@
 ﻿using ApiGateway.Models.Cliente.DataTransferObjects;
+using ApiGateway.Proxies.Config;
 using ApiGateway.Shared.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
@@ -17,13 +18,9 @@ namespace ApiGateway.Proxies.Cliente
         private readonly ApiUrls _apiUrls;
         private readonly HttpClient _httpClient;
 
-        public ClienteProxy(
-            HttpClient httpClient,
-            IOptions<ApiUrls> apiUrls,
-            IHttpContextAccessor httpContextAccessor)
+        public ClienteProxy(HttpClient httpClient, IOptions<ApiUrls> apiUrls, IHttpContextAccessor httpContextAccessor)
         {
-            //httpClient.AddBearerToken(httpContextAccessor);
-
+            httpClient.AddBearerToken(httpContextAccessor);
             _httpClient = httpClient;
             _apiUrls = apiUrls.Value;
         }

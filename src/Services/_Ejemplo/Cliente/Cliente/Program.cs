@@ -18,8 +18,8 @@ var configuration = builder.Configuration;
 
 builder.Services.AddControllers();
 
-//// HttpContextAccessor
-//builder.Services.AddHttpContextAccessor();
+//HttpContextAccessor
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddDbContext<RepositoryContextFactory>(options =>
     options.UseSqlServer(configuration.GetConnectionString("sqlConnection"))
@@ -33,7 +33,8 @@ builder.Services.AddHealthChecks()
 //builder.Services.AddHealthChecksUI();
 
 // Event handlers
-builder.Services.AddMediatR(Assembly.Load("Cliente.Application"));
+//builder.Services.AddMediatR(Assembly.Load("Cliente.Application"));
+builder.Services.AddMediatR(typeof(Cliente.Application.AssemblyReference).Assembly);
 
 // Query services
 builder.Services.AddScoped<IClienteQueryService, ClienteQueryService>();

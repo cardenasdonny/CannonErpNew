@@ -2,11 +2,13 @@
 using ApiGateway.Proxies.Cliente;
 using ApiGateway.Shared.Common;
 using Cliente.Shared.Common;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Gateway.Web.Controllers.Clientes
 {
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]    
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]    
     [ApiController]
     [Route("v1/[area]/[controller]")]
     [Area(ClienteConstants.AREA)]

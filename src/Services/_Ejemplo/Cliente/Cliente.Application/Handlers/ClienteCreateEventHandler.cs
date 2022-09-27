@@ -5,10 +5,10 @@ using MediatR;
 
 namespace Clientes.Application.Handlers
 {
-    public class ClienteCreateEventHandler
-        : INotificationHandler<ClienteCreateCommand>
+    internal sealed class ClienteCreateEventHandler  : INotificationHandler<ClienteCreateCommand> 
     {
-        private readonly RepositoryContextFactory _context;
+        private readonly RepositoryContextFactory _context;        
+
         public ClienteCreateEventHandler(RepositoryContextFactory context)
         {
             _context = context;

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Services\_Ejemplo\Cliente\Cliente.Shared\Cliente.Shared.csproj" />
     <ProjectReference Include="..\..\..\Services\_Ejemplo\Inventario\Inventario.Shared\Inventario.Shared.csproj" />
     <ProjectReference Include="..\..\..\Services\_Ejemplo\Pedido\Pedido.Shared\Pedido.Shared.csproj" />

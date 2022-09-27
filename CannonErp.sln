@@ -115,9 +115,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Gateway.Web", "src\ApiG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.Proxies", "src\ApiGateways\ApiGateway.Proxies\ApiGateway.Proxies.csproj", "{0A0A8124-BACB-42B3-B199-42A69F9B1D43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Shared", "src\ApiGateways\ApiGateway.Shared\ApiGateway.Shared.csproj", "{BE96BAF7-C8C8-4519-8C29-350375F9E96A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.Shared", "src\ApiGateways\ApiGateway.Shared\ApiGateway.Shared.csproj", "{BE96BAF7-C8C8-4519-8C29-350375F9E96A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Models", "src\ApiGateways\ApiGateway.Models\ApiGateway.Models.csproj", "{D2A75343-7585-4DB9-B5F5-E1BCBC8F9740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.Models", "src\ApiGateways\ApiGateway.Models\ApiGateway.Models.csproj", "{D2A75343-7585-4DB9-B5F5-E1BCBC8F9740}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{79031241-E970-40CC-B880-19129408A1E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "src\Services\_Ejemplo\Auth\Auth\Auth.csproj", "{538CC4BB-DDF3-459B-B02A-6302EBA8F86C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Models", "src\Services\_Ejemplo\Auth\Auth.Models\Auth.Models.csproj", "{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -241,6 +247,14 @@ Global
 		{D2A75343-7585-4DB9-B5F5-E1BCBC8F9740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2A75343-7585-4DB9-B5F5-E1BCBC8F9740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2A75343-7585-4DB9-B5F5-E1BCBC8F9740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538CC4BB-DDF3-459B-B02A-6302EBA8F86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538CC4BB-DDF3-459B-B02A-6302EBA8F86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538CC4BB-DDF3-459B-B02A-6302EBA8F86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538CC4BB-DDF3-459B-B02A-6302EBA8F86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -302,6 +316,9 @@ Global
 		{0A0A8124-BACB-42B3-B199-42A69F9B1D43} = {29631C9B-2ADF-49EE-B140-9D58451E3D55}
 		{BE96BAF7-C8C8-4519-8C29-350375F9E96A} = {29631C9B-2ADF-49EE-B140-9D58451E3D55}
 		{D2A75343-7585-4DB9-B5F5-E1BCBC8F9740} = {29631C9B-2ADF-49EE-B140-9D58451E3D55}
+		{79031241-E970-40CC-B880-19129408A1E4} = {C156E4F6-387F-4BEA-9585-824F47642600}
+		{538CC4BB-DDF3-459B-B02A-6302EBA8F86C} = {79031241-E970-40CC-B880-19129408A1E4}
+		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D} = {79031241-E970-40CC-B880-19129408A1E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFCABD56-ECB4-4961-BCA0-47BCFC916F46}

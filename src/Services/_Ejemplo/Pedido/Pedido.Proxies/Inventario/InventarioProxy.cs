@@ -17,7 +17,7 @@ namespace Pedido.Proxies.Inventario
 
         public InventarioProxy(HttpClient httpClient, IOptions<ApiUrls> apiUrls, IHttpContextAccessor httpContextAccessor)
         {
-            //httpClient.AddBearerToken(httpContextAccessor);
+            httpClient.AddBearerToken(httpContextAccessor);
             _apiUrls = apiUrls.Value;
             _httpClient = httpClient;
             

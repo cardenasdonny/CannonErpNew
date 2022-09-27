@@ -33,7 +33,7 @@ namespace Cliente.Application.Queries
             return collection.MapTo<DataCollection<ClienteDto>>();
         }
 
-        public async Task<ClienteDto> GetAsync(int id)
+        public async Task<ClienteDto> GetByIdAsync(int id)
         {
             return (await _context.Clientes.SingleAsync(x => x.ClienteId == id)).MapTo<ClienteDto>();
         }
