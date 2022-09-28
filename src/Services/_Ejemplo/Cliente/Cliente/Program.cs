@@ -3,20 +3,37 @@ using Microsoft.EntityFrameworkCore;
 using MediatR;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using System.Reflection;
 using HealthChecks.UI.Client;
 using Cliente.Contracts;
 using Cliente.Application.Queries;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 var configuration = builder.Configuration;
 
+// Obtenemos el Environment true: Development false: Production
+var env = builder.Environment.IsDevelopment() ? "Development" : "Production";
+
+
 builder.Services.AddControllers();
+
+// Log
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+    .Enrich.FromLogContext()
+    //.WriteTo.Console()
+    .Enrich.WithProperty("Servicio", typeof(Program).Assembly.GetName().Name)
+    .Enrich.WithProperty("Environment", env)
+    .WriteTo.Seq("http://localhost:5341/")
+    .CreateLogger();
 
 //HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
@@ -73,4 +90,34 @@ app.MapHealthChecks("/healthz", new HealthCheckOptions()
     Predicate = _ => true,
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
-app.Run();
+try
+{
+    Log.Information("Iniciando Servicio Clientes {Servicio}", "Clientes");
+
+    Log.Information("Información 1 {Servicio1}", "Servicio Cliente");
+
+
+    /*
+    Log.Warning("Mensaje de Warning en Program.cs - Warning servicio Cliente");
+    
+    Log.Error("Mensaje de excepción en la clase: Program.cs - Error al inicio del Servicio Clientes");
+    Log.Fatal("Mensaje de excepción en la clase: Program.cs - Error Fatal al inicio del Servicio Clientes");
+
+    Log.Information("Información 1 {Servicio}", "Servicio Cliente");
+    Log.Information("Información de inventario {Servicio} {prpp}", "Inventario","","");
+    */
+
+    app.Run();
+    
+
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Error al iniciar el servicio Clientes");
+
+    return;
+}
+finally
+{
+    Log.CloseAndFlush();
+}
