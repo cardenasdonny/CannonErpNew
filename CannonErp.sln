@@ -121,9 +121,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.Models", "src\Ap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{79031241-E970-40CC-B880-19129408A1E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "src\Services\_Ejemplo\Auth\Auth\Auth.csproj", "{538CC4BB-DDF3-459B-B02A-6302EBA8F86C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth", "src\Services\_Ejemplo\Auth\Auth\Auth.csproj", "{538CC4BB-DDF3-459B-B02A-6302EBA8F86C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Models", "src\Services\_Ejemplo\Auth\Auth.Models\Auth.Models.csproj", "{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Models", "src\Services\_Ejemplo\Auth\Auth.Models\Auth.Models.csproj", "{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
