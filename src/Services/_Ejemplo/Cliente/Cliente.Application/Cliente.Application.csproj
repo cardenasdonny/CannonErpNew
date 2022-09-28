@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Common.Auth\Common.Auth.csproj" />
     <ProjectReference Include="..\..\..\Common\Common.Mapping\Common.Mapping.csproj" />
     <ProjectReference Include="..\..\..\Common\Common.Paging\Common.Paging.csproj" />
     <ProjectReference Include="..\Cliente.Contracts\Cliente.Contracts.csproj" />

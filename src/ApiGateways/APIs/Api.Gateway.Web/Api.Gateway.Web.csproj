@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Services\_Ejemplo\Cliente\Cliente.Shared\Cliente.Shared.csproj" />
     <ProjectReference Include="..\..\..\Services\_Ejemplo\Inventario\Inventario.Shared\Inventario.Shared.csproj" />
     <ProjectReference Include="..\..\..\Services\_Ejemplo\Pedido\Pedido.Shared\Pedido.Shared.csproj" />
     <ProjectReference Include="..\..\ApiGateway.Proxies\ApiGateway.Proxies.csproj" />

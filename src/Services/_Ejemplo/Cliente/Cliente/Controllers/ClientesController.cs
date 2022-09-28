@@ -13,7 +13,7 @@ using System.Security.Claims;
 
 namespace Cliente.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     [Route("v1/[area]/[controller]")]
     [Area(ClienteConstants.AREA)]
@@ -53,18 +53,9 @@ namespace Cliente.Controllers
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
-        {
-            // Lista de los claims del usuario logueado
-            var claims = User.Claims;
-
-            // Buscamos el Claim
-            var usernameClaim = claims
-                .Where(x => x.Type == ClaimTypes.Email)
-                .FirstOrDefault();
+        {            
             var cliente = await _sender.Send(new GetClienteQuery(id, TrackChanges: false));
-            return Ok(cliente);
-
-            //return await _clienteQueryService.GetByIdAsync(id);
+            return Ok(cliente);            
         }
 
         [HttpPost]

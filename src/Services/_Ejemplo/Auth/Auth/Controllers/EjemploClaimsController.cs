@@ -12,7 +12,7 @@ namespace Auth.Controllers
     public class EjemploClaimsController : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetClaims(int id)
+        public async Task<IActionResult> GetClaims()
         {
             // Lista de los claims del usuario logueado
             var claims = User.Claims;

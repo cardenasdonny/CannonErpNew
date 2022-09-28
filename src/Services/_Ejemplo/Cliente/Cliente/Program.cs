@@ -11,12 +11,15 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Serilog.Events;
+using System.Security.Principal;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 var configuration = builder.Configuration;
+
+var a = configuration.GetConnectionString("sqlConnection");
 
 // Obtenemos el Environment true: Development false: Production
 var env = builder.Environment.IsDevelopment() ? "Development" : "Production";
@@ -37,6 +40,8 @@ Log.Logger = new LoggerConfiguration()
 
 //HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddTransient<IPrincipal>(provider => provider.GetService<IHttpContextAccessor>().HttpContext.User);
 
 builder.Services.AddDbContext<RepositoryContextFactory>(options =>
     options.UseSqlServer(configuration.GetConnectionString("sqlConnection"))

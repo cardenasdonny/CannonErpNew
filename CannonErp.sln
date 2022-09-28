@@ -125,6 +125,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth", "src\Services\_Ejemp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Models", "src\Services\_Ejemplo\Auth\Auth.Models\Auth.Models.csproj", "{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Auth", "Common.Auth\Common.Auth.csproj", "{AE0ED721-9C0F-4532-A468-1CAC0C574C2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -255,6 +257,10 @@ Global
 		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0ED721-9C0F-4532-A468-1CAC0C574C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0ED721-9C0F-4532-A468-1CAC0C574C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0ED721-9C0F-4532-A468-1CAC0C574C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0ED721-9C0F-4532-A468-1CAC0C574C2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -319,6 +325,7 @@ Global
 		{79031241-E970-40CC-B880-19129408A1E4} = {C156E4F6-387F-4BEA-9585-824F47642600}
 		{538CC4BB-DDF3-459B-B02A-6302EBA8F86C} = {79031241-E970-40CC-B880-19129408A1E4}
 		{C9DCAF7F-9FB8-40DA-8EF3-988DEA96729D} = {79031241-E970-40CC-B880-19129408A1E4}
+		{AE0ED721-9C0F-4532-A468-1CAC0C574C2B} = {7437690E-C5A3-46CF-AA4F-E0492B584420}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFCABD56-ECB4-4961-BCA0-47BCFC916F46}
