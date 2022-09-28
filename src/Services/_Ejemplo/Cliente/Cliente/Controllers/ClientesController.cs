@@ -53,6 +53,9 @@ namespace Cliente.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
+            //var user = User.FindFirst("Name").Value;
+            //or if u want the list of claims
+            var claims = User.Claims;
             var cliente = await _sender.Send(new GetClienteQuery(id, TrackChanges: false));
             return Ok(cliente);
 

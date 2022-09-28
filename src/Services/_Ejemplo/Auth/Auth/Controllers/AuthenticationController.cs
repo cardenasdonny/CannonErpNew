@@ -71,5 +71,6 @@ namespace Auth.Controllers
         {
             return Ok(logins);
         }
+
     }
 }
