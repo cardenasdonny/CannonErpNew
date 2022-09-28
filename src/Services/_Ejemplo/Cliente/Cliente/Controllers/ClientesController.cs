@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using System.Security.Claims;
 
 namespace Cliente.Controllers
 {
@@ -53,9 +54,13 @@ namespace Cliente.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            //var user = User.FindFirst("Name").Value;
-            //or if u want the list of claims
+            // Lista de los claims del usuario logueado
             var claims = User.Claims;
+
+            // Buscamos el Claim
+            var usernameClaim = claims
+                .Where(x => x.Type == ClaimTypes.Email)
+                .FirstOrDefault();
             var cliente = await _sender.Send(new GetClienteQuery(id, TrackChanges: false));
             return Ok(cliente);
 
