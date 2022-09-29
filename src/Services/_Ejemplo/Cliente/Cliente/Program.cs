@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Serilog.Events;
 using System.Security.Principal;
+using Common.Logger;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,7 +36,8 @@ Log.Logger = new LoggerConfiguration()
     //.WriteTo.Console()
     .Enrich.WithProperty("Servicio", typeof(Program).Assembly.GetName().Name)
     .Enrich.WithProperty("Environment", env)
-    .WriteTo.Seq("http://localhost:5341/")
+    .Enrich.WithProperty("Usuario", "System.Cannon")
+    .WriteTo.Seq("http://srvtrial:5642/")
     .CreateLogger();
 
 //HttpContextAccessor
@@ -97,23 +99,23 @@ app.MapHealthChecks("/healthz", new HealthCheckOptions()
 });
 try
 {
-    Log.Information("Iniciando Servicio Clientes {Servicio}", "Clientes");
+    //Ejemplo del uso de los log:
 
-    Log.Information("Información 1 {Servicio1}", "Servicio Cliente");
+    // En la clase ClienteCreateEventHandler del servicio Cliente hay un ejemplo de como obtener el usuario logueado, si no se envia en el log
+    // se coloca por defecto System.Cannon
+    var emailUsuario = "usuario.cannon";
 
+    var obj = new { propiedad1 = "Propiedad 1", propiedad2 = "Propiedad 2" };
+   
+    Logs.Information("Título mensaje", "Esto es una información");
+    Logs.Information("Título mensaje", "Esto es una información", emailUsuario);
+    Logs.Information("Título mensaje", "Esto es una información", emailUsuario, obj);
+    Logs.Warning("Título mensaje", "Esto es un warning", emailUsuario);
+    Logs.Error("Título mensaje", "Esto es un error", emailUsuario);
+    Logs.FatalError("Título mensaje", "Esto es un fatal error", emailUsuario); 
+    Logs.Information("Título mensaje", "Esto es una información", emailUsuario, obj);
 
-    /*
-    Log.Warning("Mensaje de Warning en Program.cs - Warning servicio Cliente");
-    
-    Log.Error("Mensaje de excepción en la clase: Program.cs - Error al inicio del Servicio Clientes");
-    Log.Fatal("Mensaje de excepción en la clase: Program.cs - Error Fatal al inicio del Servicio Clientes");
-
-    Log.Information("Información 1 {Servicio}", "Servicio Cliente");
-    Log.Information("Información de inventario {Servicio} {prpp}", "Inventario","","");
-    */
-
-    app.Run();
-    
+    app.Run();    
 
 }
 catch (Exception ex)

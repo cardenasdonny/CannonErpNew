@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Claims;
+
 
 namespace Common.Auth
 {
-    public static class UserClaim
-    {
-        public static string GetEmail(ClaimsIdentity claims)
-        {
+    public static class UserClaim {
+       
+        public static string GetEmail(ClaimsIdentity ? claims)        {
+            
             // Buscamos el Claim
             var usernameClaim = claims.Claims
                 .Where(x => x.Type == ClaimTypes.Email)
@@ -25,5 +21,6 @@ namespace Common.Auth
                 .FirstOrDefault();
             return usernameClaim.Value;
         }
+
     }
 }
