@@ -13,6 +13,7 @@ using Serilog;
 using Serilog.Events;
 using System.Security.Principal;
 using Common.Logger;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +49,8 @@ builder.Services.AddTransient<IPrincipal>(provider => provider.GetService<IHttpC
 builder.Services.AddDbContext<RepositoryContextFactory>(options =>
     options.UseSqlServer(configuration.GetConnectionString("sqlConnection"))
 );
+
+builder.Services.AddScoped<DapperContext>();
 
 // Health check
 builder.Services.AddHealthChecks()
