@@ -6,10 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="_Ejemplo\Cliente\Commands\" />
-    <Folder Include="_Ejemplo\Inventario\Commands\" />
-    <Folder Include="_Ejemplo\Inventario\DataTransferObjects\" />
-  </ItemGroup>
-
 </Project>

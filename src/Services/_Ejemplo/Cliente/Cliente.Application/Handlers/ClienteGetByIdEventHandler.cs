@@ -4,6 +4,7 @@ using Cliente.Shared.DataTransferObjects;
 using Common.Mapping;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 using System.Security.Principal;
 
@@ -13,6 +14,7 @@ namespace Cliente.Application.Handlers
     {
         private readonly RepositoryContextFactory _context;
         private readonly IPrincipal _principal;
+        private readonly ILogger<ClienteGetByIdEventHandler> _logger;
 
         public ClienteGetByIdEventHandler(RepositoryContextFactory context, IPrincipal principal)
         {

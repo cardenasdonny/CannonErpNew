@@ -1,12 +1,18 @@
 using Api.Gateway.Web.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Obtenemos la configuración (appsettings.json)
 var configuration = builder.Configuration;
+
+// Configuración de los CORS
+//builder.Services.ConfigureCors();
+
+
 
 builder.Services.AddAppsettingBinding(configuration)
                     .AddProxiesRegistration(configuration);
@@ -33,6 +39,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+if (app.Environment.IsDevelopment()) 
+    app.UseDeveloperExceptionPage(); 
+else app.UseHsts();
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.All
+});
+
+//app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

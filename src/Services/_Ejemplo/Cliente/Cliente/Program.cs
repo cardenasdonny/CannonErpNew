@@ -19,9 +19,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// Obtenemos la configuración (appsettings.json)
 var configuration = builder.Configuration;
-
-var a = configuration.GetConnectionString("sqlConnection");
 
 // Obtenemos el Environment true: Development false: Production
 var env = builder.Environment.IsDevelopment() ? "Development" : "Production";
@@ -29,7 +28,7 @@ var env = builder.Environment.IsDevelopment() ? "Development" : "Production";
 
 builder.Services.AddControllers();
 
-// Log
+// Log (se usa serilog)
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
@@ -43,9 +42,9 @@ Log.Logger = new LoggerConfiguration()
 
 //HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
-
 builder.Services.AddTransient<IPrincipal>(provider => provider.GetService<IHttpContextAccessor>().HttpContext.User);
 
+// Db entityframework (lo usamos para las con)
 builder.Services.AddDbContext<RepositoryContextFactory>(options =>
     options.UseSqlServer(configuration.GetConnectionString("sqlConnection"))
 );
@@ -57,7 +56,6 @@ builder.Services.AddHealthChecks()
             .AddCheck("self", () => HealthCheckResult.Healthy())
             .AddDbContextCheck<RepositoryContextFactory>(typeof(RepositoryContextFactory).Name);
 
-//builder.Services.AddHealthChecksUI();
 
 // Event handlers
 //builder.Services.AddMediatR(Assembly.Load("Cliente.Application"));

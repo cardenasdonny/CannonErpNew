@@ -27,6 +27,7 @@
     <ProjectReference Include="..\..\..\Common\Common.Logger\Common.Logger.csproj" />
     <ProjectReference Include="..\Cliente.Application\Cliente.Application.csproj" />
     <ProjectReference Include="..\Cliente.Contracts\Cliente.Contracts.csproj" />
+    <ProjectReference Include="..\Cliente.LoggerService\Cliente.LoggerService.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
